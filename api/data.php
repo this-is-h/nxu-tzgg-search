@@ -30,4 +30,25 @@ function httpRequest($url, $params, $post = true)
 }
 
 // echo httpRequest('https://tuanwei.nxu.edu.cn/info/1003/1022.htm', array(), false);
-echo file_get_contents('https://tuanwei.nxu.edu.cn/info/1003/1022.htm');
+$html = file_get_contents('https://tuanwei.nxu.edu.cn/info/1003/1022.htm');
+
+// 创建 DOMDocument 对象
+$dom = new DOMDocument();
+
+// 忽略 HTML 错误
+libxml_use_internal_errors(true);
+
+// 加载 HTML 内容到 DOMDocument
+$dom->loadHTML($html);
+
+// 恢复错误处理
+libxml_clear_errors();
+
+// 使用 XPath 查询获取 class 为 "abd" 的 div 内容
+$xpath = new DOMXPath($dom);
+$divs = $xpath->query('//div[contains(@class, "abd")]');
+
+// 遍历匹配的 div 元素并输出其内容
+foreach ($divs as $div) {
+    echo $dom->saveHTML($div);
+}
