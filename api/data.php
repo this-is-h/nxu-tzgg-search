@@ -1,36 +1,37 @@
 <?php
-function httpRequest($url, $params, $post = true)
-{
-    $header = [
-            'Content-Type: application/json; charset=utf-8',
-    ];
-
-    $ch = curl_init();
-    if ($post) {
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
-    } elseif (is_array($params) && 0 < count($params)) {
-        curl_setopt($ch, CURLOPT_URL, $url . "?" . http_build_query($params));
-    } else {
-        curl_setopt($ch, CURLOPT_URL, $url);
-    }
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_FORBID_REUSE, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    $data = curl_exec($ch);
-    if (curl_error($ch)) {
-        echo curl_error($ch);
-        return null;
-    }
-    curl_close($ch);
-    return $data;
+if (isset($_GET['num'])) {
+    $num = $_GET['num'];
+} else {
+    $num = 1000;
 }
 
-// echo httpRequest('https://tuanwei.nxu.edu.cn/info/1003/1022.htm', array(), false);
-$html = file_get_contents('https://tuanwei.nxu.edu.cn/info/1003/1022.htm');
+$url = 'https://tuanwei.nxu.edu.cn/info/1003/' . $num . '.htm';
+
+// 创建一个包含 HTTP 头的流上下文以检查响应状态
+$options = [
+    'http' => [
+        'method' => 'GET'
+    ],
+];
+
+$context = stream_context_create($options);
+
+// 使用创建的流上下文调用 file_get_contents
+$html = @file_get_contents($url, false, $context);
+
+// 检查 file_get_contents 是否成功
+if ($html === false) {
+    // 检查 HTTP 响应代码
+    $http_response_header = $http_response_header ?? [];
+
+    if (strpos($http_response_header[0], '404') !== false) {
+        http_response_code(404);
+        return;
+    } else {
+        http_response_code(502);
+        return;
+    }
+}
 
 // 创建 DOMDocument 对象
 $dom = new DOMDocument();
@@ -46,9 +47,17 @@ libxml_clear_errors();
 
 // 使用 XPath 查询获取 class 为 "abd" 的 div 内容
 $xpath = new DOMXPath($dom);
-$divs = $xpath->query('//div[contains(@class, "abd")]');
+$divs = $xpath->query('//div[contains(@class, "ar_article_box")]');
 
+$result = '';
 // 遍历匹配的 div 元素并输出其内容
 foreach ($divs as $div) {
-    echo $dom->saveHTML($div);
+    $result =  $dom->saveHTML($div);
 }
+
+if (empty($result)) {
+return;
+}
+
+$result = preg_replace('/([cf]=")\//', '$1https://tuanwei.nxu.edu.cn/', $result);
+echo $result;

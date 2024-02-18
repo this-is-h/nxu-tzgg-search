@@ -6,6 +6,8 @@
             "maxDuration": 10
         }
     },
-    "rewrites": [],
+    "rewrites": [
+        { "source": "/api/data/:num", "destination": "/api/data" }
+    ],
     "trailingSlash": true
 }
