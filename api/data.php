@@ -29,4 +29,5 @@ function httpRequest($url, $params, $post = true)
     return $data;
 }
 
-echo httpRequest('https://tuanwei.nxu.edu.cn/info/1003/1022.htm', array(), false);
+// echo httpRequest('https://tuanwei.nxu.edu.cn/info/1003/1022.htm', array(), false);
+echo file_get_contents('https://tuanwei.nxu.edu.cn/info/1003/1022.htm');
