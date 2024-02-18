@@ -9,5 +9,5 @@
     "rewrites": [
         { "source": "/api/data/:num", "destination": "/api/data" }
     ],
-    "trailingSlash": true
+    "trailingSlash": false
 }
