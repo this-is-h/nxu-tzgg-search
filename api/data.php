@@ -2,7 +2,7 @@
 if (isset($_GET['num'])) {
     $num = $_GET['num'];
 } else {
-    $num = 1000;
+    $num = 1022;
 }
 
 $url = 'https://tuanwei.nxu.edu.cn/info/1003/' . $num . '.htm';
