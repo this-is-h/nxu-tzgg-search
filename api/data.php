@@ -6,21 +6,18 @@ if (isset($_GET['num'])) {
 }
 
 // JSON 文件路径
-$jsonFilePath = 'https://nxu-tzsearch.thisish.cn/pages.json';
+$jsonFilePath = 'http://nxu-tzsearch.thisish.cn/pages.json';
 
 // 读取 JSON 文件内容
-if (file_exists($jsonFilePath)) {
+// if (file_exists($jsonFilePath)) {
     $jsonData = file_get_contents($jsonFilePath);
     $dataArray = json_decode($jsonData, true);
     if (empty($dataArray)) {
         $dataArray = array();
     }
-} else {
-    $dataArray = array();
-}
-
-var_dump($dataArray);
-die();
+// } else {
+//     $dataArray = array();
+// }
 
 if ($num > count($dataArray)) {
     http_response_code(404);

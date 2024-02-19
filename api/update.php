@@ -6,18 +6,18 @@ header('X-Accel-Buffering: no'); //适用于Nginx服务器环境
 ob_end_flush(); //禁止PHP缓存数据
 ob_implicit_flush(1); //打开/关闭绝对刷送，不需要再调用flush()
 // JSON 文件路径
-$jsonFilePath = 'https://nxu-tzsearch.thisish.cn/pages.json';
+$jsonFilePath = 'http://nxu-tzsearch.thisish.cn/pages.json';
 
 // 读取 JSON 文件内容
-if (file_exists($jsonFilePath)) {
+// if (file_exists($jsonFilePath)) {
     $jsonData = file_get_contents($jsonFilePath);
     $dataArray = json_decode($jsonData, true);
     if (empty($dataArray)) {
         $dataArray = array();
     }
-} else {
-    $dataArray = array();
-}
+// } else {
+//     $dataArray = array();
+// }
 
 if (isset($_GET['num'])) {
     $num = $_GET['num'];
