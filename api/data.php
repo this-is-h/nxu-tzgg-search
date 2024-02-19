@@ -47,6 +47,28 @@ libxml_clear_errors();
 
 // 使用 XPath 查询获取 class 为 "abd" 的 div 内容
 $xpath = new DOMXPath($dom);
+
+// 使用 XPath 查询获取所有的 p 标签
+$paragraphs = $xpath->query('//p');
+
+// 遍历 p 标签并删除内容为空的标签
+foreach ($paragraphs as $paragraph) {
+    $spans = $xpath->query('.//span', $paragraph);
+
+    // 遍历 span 标签并删除内容为空的标签
+    foreach ($spans as $span) {
+        // 检查 p 标签的内容是否为空
+        if (empty(trim(strip_tags($span->textContent)))) {
+            // 删除空内容的 p 标签
+            $span->parentNode->removeChild($span);
+        }
+    }
+    // 检查 p 标签的内容是否为空
+    if (empty(trim(preg_replace('/[\s ]*/', '', $paragraph->textContent)))) {
+        // 删除空内容的 p 标签
+        $paragraph->parentNode->removeChild($paragraph);
+    }
+}
 $divs = $xpath->query('//div[contains(@class, "ar_article_box")]');
 
 $result = '';
@@ -56,7 +78,7 @@ foreach ($divs as $div) {
 }
 
 if (empty($result)) {
-return;
+    return;
 }
 
 $result = preg_replace('/([cf]=")\//', '$1https://tuanwei.nxu.edu.cn/', $result);
