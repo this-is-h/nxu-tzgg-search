@@ -101,4 +101,4 @@ if (empty($result)) {
 
 $result = preg_replace('/([cf]=")\//', '$1https://tuanwei.nxu.edu.cn/', $result);
 echo $result;
-echo '<a href="/api/data.php?num=' . $num+1 . '">下一页</a><br>';
+// echo '<a href="/api/data.php?num=' . $num+1 . '">下一页</a><br>';
