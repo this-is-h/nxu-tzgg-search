@@ -6,7 +6,7 @@ if (isset($_GET['num'])) {
 }
 
 // JSON 文件路径
-$jsonFilePath = '/pages.json';
+$jsonFilePath = '../pages.json';
 
 // 读取 JSON 文件内容
 if (file_exists($jsonFilePath)) {
@@ -18,6 +18,9 @@ if (file_exists($jsonFilePath)) {
 } else {
     $dataArray = array();
 }
+
+var_dump($dataArray);
+die();
 
 if ($num > count($dataArray)) {
     http_response_code(404);

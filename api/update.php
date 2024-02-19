@@ -6,7 +6,7 @@ header('X-Accel-Buffering: no'); //适用于Nginx服务器环境
 ob_end_flush(); //禁止PHP缓存数据
 ob_implicit_flush(1); //打开/关闭绝对刷送，不需要再调用flush()
 // JSON 文件路径
-$jsonFilePath = '/pages.json';
+$jsonFilePath = '../pages.json';
 
 // 读取 JSON 文件内容
 if (file_exists($jsonFilePath)) {
