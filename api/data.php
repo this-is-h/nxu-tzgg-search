@@ -2,10 +2,28 @@
 if (isset($_GET['num'])) {
     $num = $_GET['num'];
 } else {
-    $num = 1022;
+    $num = 1;
 }
 
-$url = 'https://tuanwei.nxu.edu.cn/info/1003/' . $num . '.htm';
+// JSON 文件路径
+$jsonFilePath = 'data.json';
+
+// 读取 JSON 文件内容
+if (file_exists($jsonFilePath)) {
+    $jsonData = file_get_contents($jsonFilePath);
+    $dataArray = json_decode($jsonData, true);
+    if (empty($dataArray)) {
+        $dataArray = array();
+    }
+} else {
+    $dataArray = array();
+}
+
+if ($num > count($dataArray)) {
+    http_response_code(404);
+    return;
+}
+$url = 'https://tuanwei.nxu.edu.cn/info/1003/' . $dataArray[$num-1] . '.htm';
 
 // 创建一个包含 HTTP 头的流上下文以检查响应状态
 $options = [
