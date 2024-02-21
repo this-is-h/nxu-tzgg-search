@@ -1,0 +1,43 @@
+{
+    "index_name": "nxu-tzgg-search",
+    "sitemap_urls": ["https://nxu-tzsearch.thisish.cn/test.xml"],
+    "rateLimit": 8,
+    "maxDepth": 10,
+    "selectors": {
+        "lvl0": {
+            "selector": "//div[@class=\"ar_article_box\"]/h5",
+            "type": "xpath",
+            "global": true
+        },
+        "lvl1": {
+            "selector": "//div[@class=\"ar_article\"]/*[contains(@style, 'font-family:黑体')]",
+            "type": "xpath",
+            "global": true
+        },
+        "lvl2": {
+            "selector": "//*[@class=\"bbt\"]/span[1]",
+            "type": "xpath",
+            "global": true
+        },
+        "lvl3": {
+            "selector": "//*[@class=\"bbt\"]/span[2]",
+            "type": "xpath",
+            "global": true
+        },
+        "lvl4": {
+            "selector": "//a[contains(@href, '_')]",
+            "type": "xpath",
+            "global": true
+        },
+        "text": {
+            "selector": "//div[@class=\"ar_article\"]//div/p",
+            "type": "xpath",
+            "global": true
+        },
+        "content": {
+            "selector": "//div[@class=\"ar_article\"]//p/span",
+            "type": "xpath",
+            "global": true
+        }
+    }
+}
