@@ -1,23 +1,20 @@
 {
     "index_name": "nxu-tzgg-search",
-    "start_urls": ["https://nxu-tzsearch.thisish.cn/pages"],
+    "start_urls": ["https://tuanwei.nxu.edu.cn/"],
     "rateLimit": 8,
     "maxDepth": 10,
     "selectors": {
         "lvl0": {
-            "selector": "",
+            "selector": ".ar_article_box > h5",
+            "global": true,
             "defaultValue": "Documentation"
         },
-        "lvl1": ".ar_article_box h5",
-        "content": "ar_article p, .ar_article span",
-        "lang": {
-            "selector": "/html/@lang",
-            "type": "xpath",
-            "global": true,
-            "default_value": "zh-CN"
-        }
-    },
-    "custom_settings": {
-        "attributesForFaceting": ["lang"]
+        "lvl1": ".bbt span:first-child",
+        "lvl2": ".bbt span:nth-child(2)",
+        "lvl3": ".ar_article span[style*='黑体']",
+        "lvl4": ".ar_article span[style*='楷体']",
+        "lvl5": "a[href*='_']",
+        "text": ".ar_article p > span, .ar_article p",
+        "content": ".ar_article p > span, .ar_article p"
     }
 }
