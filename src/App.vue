@@ -4,7 +4,7 @@ import DocSearch from './components/DocSearch.vue'
 
 <template>
     <header>
-        
+        <p>www</p>
     </header>
 
     <main>
@@ -14,6 +14,6 @@ import DocSearch from './components/DocSearch.vue'
 
 <style scoped>
     header {
-
+         margin-top: 1em;
     }
 </style>
