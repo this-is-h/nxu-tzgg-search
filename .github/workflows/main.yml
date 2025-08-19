@@ -2,10 +2,10 @@ name: Algolia DocSearch
 
 # master分支触发
 on:
-    workflow_dispath
     push:
         branches:
             - 'main'
+    workflow_dispatch:
 
 jobs:
     docsearch:
