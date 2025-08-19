@@ -1,0 +1,86 @@
+{
+    "index_name": "huanwu",
+    "sitemap_urls": [
+        "https://zhaopanpan.com/sitemap.xml"
+    ],
+    "start_urls": [
+        {
+            "url": "https://zhaopanpan.com/talks.html",
+            "selectors_key": "talks",
+            "tags": [
+                "talks"
+            ]
+        },
+        {
+            "url": "https://zhaopanpan.com/about.html",
+            "selectors_key": "about",
+            "tags": [
+                "about"
+            ]
+        },
+        {
+            "url": "https://zhaopanpan.com/posts/javascript",
+            "page_rank": 1,
+            "selectors_key": "javascript",
+            "tags": [
+                "javascript"
+            ]
+        },
+        "https://zhaopanpan.com"
+    ],
+    "selectors": {
+        "javascript": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "Javascript"
+            },
+            "lvl1": ".theme-default-content h1",
+            "lvl2": ".theme-default-content h2",
+            "lvl3": ".theme-default-content h3",
+            "lvl4": ".theme-default-content h4",
+            "lvl5": ".theme-default-content h5",
+            "lvl6": ".theme-default-content h6",
+            "content": ".theme-default-content p, .theme-default-content li"
+        },
+        "about": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "关于"
+            },
+            "lvl1": ".theme-container h1",
+            "lvl2": ".theme-container h2",
+            "lvl3": ".theme-container h3",
+            "lvl4": ".theme-container h4",
+            "lvl5": ".theme-container h5",
+            "lvl6": ".theme-container h6",
+            "content": ".theme-container p, .theme-container li"
+        },
+        "talks": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "技术分享"
+            },
+            "lvl1": ".theme-container h1",
+            "lvl2": ".theme-container h2",
+            "lvl3": ".theme-container h3",
+            "lvl4": ".theme-container h4",
+            "lvl5": ".theme-container h5",
+            "lvl6": ".theme-container h6",
+            "content": ".theme-container p, .theme-container li"
+        },
+        "default": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "文章"
+            },
+            "lvl1": ".theme-default-content h1",
+            "lvl2": ".theme-default-content h2",
+            "lvl3": ".theme-default-content h3",
+            "lvl4": ".theme-default-content h4",
+            "lvl5": ".theme-default-content h5",
+            "lvl6": ".theme-default-content h6",
+            "content": ".theme-default-content p, .theme-default-content li"
+        }
+    }
+}
+
