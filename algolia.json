@@ -1,6 +1,6 @@
 {
     "index_name": "NDTW-TZGG",
-    "start_urls": ["https://tuanwei.nxu.edu.cn/tzgg/1.htm"],
+    "start_urls": ["https://tuanwei.nxu.edu.cn/"],
     "rateLimit": 8,
     "maxDepth": 10,
     "selectors": {
