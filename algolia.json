@@ -6,14 +6,14 @@
         "lvl1": ".v_news_content > p span[style*='黑体']",
         "lvl2": ".v_news_content > p span[style*='楷体']",
         "text": ".v_news_content p span[style*='仿宋_gb2312'], .v_news_content p span[style*='fangsong_gb2312']",
-        "content": ".v_news_content",
+        "content": ".v_news_content p",
         "date": ".bbt span:first-child"
     },
     "stop_urls": ["https://tuanwei.nxu.edu.cn/system/_content/download.jsp"],
     "selectors_exclude": ["header", "m_header"],
     "custom_settings": {
         "attributesForFaceting": ["date"],
-        "attributesToSnippet": ["content:50"],
+        "attributesToSnippet": ["content:30"],
         "attributesToRetrieve": ["hierarchy", "content", "url", "date"],
         "attributesToHighlight": ["hierarchy", "content"],
         "distinct": true,
