@@ -4,11 +4,10 @@
     "selectors": {
         "lvl0": ".ar_article_box > h5",
         "lvl1": "h1.margin_auto_1",
-        "lvl2": ".ar_article span[style*='黑体']",
-        "lvl3": ".ar_article span[style*='楷体']",
-        "lvl4": ".bbt span:first-child",
-        "lvl5": ".bbt span:nth-child(2)",
-        "lvl6": "a[href*='_']",
+        "lvl2": ".bbt span:first-child",
+        "lvl3": ".ar_article span[style*='黑体']",
+        "lvl4": ".ar_article span[style*='楷体']",
+        "lvl5": "a[href*='_']",
         "text": ".ar_article p > span, .ar_article p",
         "content": ".ar_article p > span, .ar_article p"
     },
