@@ -14,7 +14,7 @@
     "custom_settings": {
         "attributesForFaceting": ["date"],
         "attributesToSnippet": ["content:50"],
-        "attributesToRetrieve": ["hierarchy", "content", "anchor", "url", "date"],
+        "attributesToRetrieve": ["hierarchy", "content", "url", "date"],
         "attributesToHighlight": ["hierarchy", "content"],
         "distinct": true,
         "attributeForDistinct": "url",
