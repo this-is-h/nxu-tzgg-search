@@ -3,9 +3,18 @@
     "start_urls": ["https://tuanwei.nxu.edu.cn/"],
     "selectors": {
         "lvl0": ".ar_article_box > h5",
-        "lvl1": "//div[contains(@class, 'v_news_content')]/p[span[contains(@style, '黑体')]]",
-        "lvl2": "//div[contains(@class, 'v_news_content')]/p[span[contains(@style, '楷体')]]",
-        "text": "//div[contains(@class, 'v_news_content')]/p[span[contains(@style, '仿宋_gb2312')]] | //div[contains(@class, 'v_news_content')]/p[span[contains(@style, 'fangsong_gb2312')]]",
+        "lvl1": {
+            "selector": "//div[contains(@class, 'v_news_content')]/p[span[contains(@style, '黑体')]]",
+            "type": "xpath"
+        },
+        "lvl2": {
+            "selector": "//div[contains(@class, 'v_news_content')]/p[span[contains(@style, '楷体')]]",
+            "type": "xpath"
+        },
+        "text": {
+            "selector": "//div[contains(@class, 'v_news_content')]/p[span[contains(@style, '仿宋_gb2312')]] | //div[contains(@class, 'v_news_content')]/p[span[contains(@style, 'fangsong_gb2312')]]",
+            "type": "xpath"
+        },
         "content": ".v_news_content",
         "date": ".bbt span:first-child"
     },
