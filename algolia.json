@@ -3,12 +3,23 @@
     "start_urls": ["https://tuanwei.nxu.edu.cn/"],
     "selectors": {
         "lvl0": ".ar_article_box > h5",
-        "lvl1": ".v_news_content > p span[style*='黑体'], .v_news_content > p span[style*='楷体']",
-        "lvl2": ".v_news_content p span[style*='仿宋_gb2312'], .v_news_content p span[style*='fangsong_gb2312']",
-        "lvl3": "a[href*='_']",
-        "text": ".v_news_content p, .v_news_content span",
-        "content": ".v_news_content p, .v_news_content span"
+        "lvl1": ".v_news_content > p:has(span[style*='黑体'])",
+        "lvl2": ".v_news_content > p:has(span[style*='楷体'])",
+        "text": ".v_news_content p:has(span[style*='仿宋_gb2312']), .v_news_content p:has(span[style*='fangsong_gb2312'])",
+        "content": ".v_news_content",
+        "date": ".bbt span:first-child"
     },
     "stop_urls": ["https://tuanwei.nxu.edu.cn/system/_content/download.jsp"],
-    "selectors_exclude": ["header", "m_header"]
+    "selectors_exclude": ["header", "m_header"],
+    "custom_settings": {
+        "attributesForFaceting": ["date"],
+        "attributesToSnippet": ["content:50"],
+        "attributesToRetrieve": ["hierarchy", "content", "anchor", "url", "date"],
+        "attributesToHighlight": ["hierarchy", "content"],
+        "distinct": true,
+        "attributeForDistinct": "url",
+        "minWordSizefor1Typo": 3,
+        "minWordSizefor2Typos": 7,
+        "removeWordsIfNoResults": "allOptional"
+    }
 }
