@@ -1,43 +1,19 @@
 {
     "index_name": "NDTW-TZGG",
     "start_urls": ["https://tuanwei.nxu.edu.cn/"],
-    "rateLimit": 8,
-    "maxDepth": 10,
     "selectors": {
         "lvl0": {
             "selector": "h1.margin_auto_1",
             "defaultValue": "未分类",
-            "global": true
         },
-        "lvl1": {
-            "selector": ".ar_article_box > h5",
-            "global": true
-        },
-        "lvl2": {
-            "selector": ".ar_article span[style*='黑体']",
-            "global": true
-        },
-        "lvl3": {
-            "selector": ".ar_article span[style*='楷体']",
-            "global": true
-        },
-        "lvl4": {
-            "selector": ".bbt span:first-child",
-            "global": true
-        },
-        "lvl5": {
-            "selector": ".bbt span:nth-child(2)",
-            "global": true
-        },
-        "lvl6": {
-            "selector": "a[href*='_']",
-            "global": true
-        },
+        "lvl1": ".ar_article_box > h5",
+        "lvl2": ".ar_article span[style*='黑体']",
+        "lvl3": ".ar_article span[style*='楷体']",
+        "lvl4": ".bbt span:first-child",
+        "lvl5": ".bbt span:nth-child(2)",
+        "lvl6": "a[href*='_']",
         "text": ".ar_article p > span, .ar_article p",
-        "content": {
-            "selector": ".ar_article p > span, .ar_article p",
-            "global": true
-        }
+        "content": ".ar_article p > span, .ar_article p",
     },
     "stop_urls": ["https://tuanwei.nxu.edu.cn/system/_content/download.jsp"],
     "selectors_exclude": ["header", "m_header"]
