@@ -4,7 +4,8 @@
     "selectors": {
         "lvl0": ".ar_article_box > h5",
         "lvl1": ".v_news_content > p span[style*='黑体'], .v_news_content > p span[style*='楷体']",
-        "lvl2": ".v_news_content p span[style*='仿宋_gb2312']",
+        "lvl2": ".v_news_content p span[style*='仿宋_gb2312'], .v_news_content p span[style*='fangsong_gb2312']",
+        "lvl3": "a[href*='_']",
         "text": ".v_news_content p, .v_news_content span",
         "content": ".v_news_content p, .v_news_content span"
     },
