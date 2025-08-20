@@ -3,8 +3,11 @@
     "start_urls": ["https://tuanwei.nxu.edu.cn/"],
     "selectors": {
         "lvl0": ".ar_article_box > h5",
+        // "lvl1": "h1.margin_auto_1",
+        // "lvl1": ".bbt span:first-child",
         "lvl1": ".ar_article span[style*='黑体']",
         "lvl2": ".ar_article span[style*='楷体']",
+        // "lvl3": "a[href*='_']",
         "text": ".ar_article p > span, .ar_article p, a[href*='_']",
         "content": ".ar_article p > span, .ar_article p, a[href*='_']"
     },
